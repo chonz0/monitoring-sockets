@@ -37,6 +37,10 @@ setInterval(() => {
         canceled: random(1, 1000),
       }
     },
+    services: [
+      { name: 'Renovación licencias', sla: 10, waitingTime: random(1, 100), type: 'Proceso' },
+      { name: 'Pago de servicios', sla: 20, waitingTime: random(1, 100), type: 'Fila' },
+    ],
     operators: {
       active: random(1, 50),
       inactive: random(1, 50),
