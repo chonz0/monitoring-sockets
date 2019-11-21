@@ -26,6 +26,8 @@ server.listen(port, () => {
 const random = (min, max) => Math.round(Math.random() * (max - min) + min);
 
 setInterval(() => {
+  const subscriptionsTotal = random(500, 3000);
+
   const stats = {
     appointments: {
       today: {
@@ -40,8 +42,8 @@ setInterval(() => {
       inactive: random(1, 50),
     },
     subscriptions: {
-      total: random(1, 1000),
-      completed: random(1, 1000),
+      total: subscriptionsTotal,
+      completed: random(1, subscriptionsTotal * 0.7),
       waiting: {
         total: random(1, 1000),
         checkedIn: random(1, 1000),
