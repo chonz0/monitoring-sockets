@@ -6,6 +6,7 @@ const validator = require('express-validator')
 const app = express()
 const server = require('http').Server(app)
 const io = socket(server)
+const _ = require('lodash');
 
 const port = process.env.PORT || 3000
 const route = require('./app/routes')
@@ -27,6 +28,14 @@ const random = (min, max) => Math.round(Math.random() * (max - min) + min);
 
 setInterval(() => {
   const subscriptionsTotal = random(500, 3000);
+  const services = _.sortBy([
+    { name: 'Renovación licencias', sla: 10, waitingTime: random(1, 100), type: 'Proceso' },
+    { name: 'Pago de servicios', sla: 20, waitingTime: random(1, 100), type: 'Fila' },
+    { name: 'Atención al cliente', sla: 20, waitingTime: random(1, 100), type: 'Fila' },
+    { name: 'Solicitud de préstamos hipotecarios', sla: 20, waitingTime: random(1, 100), type: 'Fila' },
+    { name: 'Reclamos en demoras por podas de árboles', sla: 20, waitingTime: random(1, 100), type: 'Proceso' },
+    { name: 'Pedido de residencia para extranjeros', sla: 20, waitingTime: random(1, 100), type: 'Fila' },
+  ], ['waitingTime']).reverse();
 
   const stats = {
     appointments: {
@@ -37,14 +46,7 @@ setInterval(() => {
         canceled: random(1, 1000),
       }
     },
-    services: [
-      { name: 'Renovación licencias', sla: 10, waitingTime: random(1, 100), type: 'Proceso' },
-      { name: 'Pago de servicios', sla: 20, waitingTime: random(1, 100), type: 'Fila' },
-      { name: 'Atención al cliente', sla: 20, waitingTime: random(1, 100), type: 'Fila' },
-      { name: 'Solicitud de préstamos hipotecarios', sla: 20, waitingTime: random(1, 100), type: 'Fila' },
-      { name: 'Reclamos en demoras por podas de árboles', sla: 20, waitingTime: random(1, 100), type: 'Proceso' },
-      { name: 'Pedido de residencia para extranjeros', sla: 20, waitingTime: random(1, 100), type: 'Fila' },
-    ],
+    services,
     operators: {
       active: random(1, 50),
       inactive: random(1, 50),
