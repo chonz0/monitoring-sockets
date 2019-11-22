@@ -8,7 +8,7 @@ const server = require('http').Server(app)
 const io = socket(server)
 const _ = require('lodash');
 
-const port = process.env.PORT || 3000
+const port = process.env.PORT || 3001
 const route = require('./app/routes')
 
 app.use(cors())
