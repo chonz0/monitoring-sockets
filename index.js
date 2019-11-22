@@ -67,4 +67,4 @@ setInterval(() => {
 
   console.log('stats', stats);
   io.emit('stats', stats);
-}, 1000);
+}, 3000);
