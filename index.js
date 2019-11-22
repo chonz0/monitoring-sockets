@@ -32,8 +32,8 @@ setInterval(() => {
     { name: 'Renovación licencias', sla: 10, waitingTime: random(1, 100), type: 'Proceso' },
     { name: 'Pago de servicios', sla: 20, waitingTime: random(1, 100), type: 'Fila' },
     { name: 'Atención al cliente', sla: 20, waitingTime: random(1, 100), type: 'Fila' },
-    { name: 'Solicitud de préstamos hipotecarios', sla: 20, waitingTime: random(1, 100), type: 'Fila' },
-    { name: 'Reclamos en demoras por podas de árboles', sla: 20, waitingTime: random(1, 100), type: 'Proceso' },
+    { name: 'Solicitud de préstamos hipotecarios', sla: 50, waitingTime: random(1, 100), type: 'Fila' },
+    { name: 'Reclamos en demoras por podas de árboles', sla: 30, waitingTime: random(1, 100), type: 'Proceso' },
     { name: 'Pedido de residencia para extranjeros', sla: 20, waitingTime: random(1, 100), type: 'Fila' },
   ], ['waitingTime']).reverse();
 
